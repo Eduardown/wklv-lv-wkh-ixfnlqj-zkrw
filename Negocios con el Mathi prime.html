@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Texto Animado</title>
+    <style>
+        /* Fondo negro */
+        body {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #6A0000; /* Rojo oscuro */
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            position: relative;
+        }
+
+        /* Efecto de texto parpadeante y movimiento */
+        .text {
+            position: absolute; /* Permite que cada texto se posicione en lugares diferentes */
+            animation: moveAround 1s infinite; /* Velocidad de movimiento */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
+            transition: transform 0.5s ease; /* Transición suave */
+        }
+
+        /* Posiciones iniciales aleatorias */
+        .text:nth-child(1) {
+            top: 10%;
+            left: 10%;
+        }
+        .text:nth-child(2) {
+            top: 20%;
+            left: 70%;
+        }
+        .text:nth-child(3) {
+            top: 60%;
+            left: 90%;
+        }
+        .text:nth-child(4) {
+            top: 80%;
+            left: 30%;
+        }
+
+        /* Animación de movimiento */
+        @keyframes moveAround {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(300px, -200px); }
+            40% { transform: translate(-300px, 150px); }
+            60% { transform: translate(200px, 250px); }
+            80% { transform: translate(-200px, -300px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Botón escondido */
+        .hidden-button {
+            font-size: 0.8em;
+            color: #6A0000; /* Mismo tono que el texto */
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.3; /* Baja visibilidad */
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Efecto al pasar el cursor */
+        .hidden-button:hover {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="text" style="animation-delay: 0s;">I feel so sad</div>
+    <div class="text" style="animation-delay: 0.5s;">What the fuck you are doing here</div>
+    <div class="text" style="animation-delay: 1s;">Why I am doing this</div>
+    <div class="text" style="animation-delay: 1.5s;">I love this</div>
+
+    <!-- Botón escondido -->
+    <button class="hidden-button" onclick="window.location.href='otra_pagina.html';">Don't Press This</button>
+</body>
+</html>
